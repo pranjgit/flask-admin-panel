@@ -8,3 +8,8 @@ dist/
 htmlcov/
 .tox/
 docs/_build/
+# due to using nox and pytest
+.nox
+.tox
+.cache
+.pytest_cache/
