@@ -7,7 +7,7 @@ here = pathlib.Path(__file__).parent.resolve()
 
 setup(
     name='flask_admin_panel',
-    version = "0.0.4",
+    version = "0.0.5",
     url="https://github.com/pranjgit/flask-admin-panel",  # Optional
     
     # Classifiers help users find your project by categorizing it.
@@ -55,15 +55,15 @@ setup(
     python_requires=">=3.8, <4",
     include_package_data=True,
     install_requires=[
-        "flask>=3.0.0",
-        "flask-injector==0.15.0",
-        "flask-jwt-extended==4.6.0",
+        "Flask>=3.0.0",
+        "Flask-Injector==0.15.0",
+        "Flask-JWT-Extended==4.6.0",
         "flask-marshmallow==1.2.0",
-        "flask-migrate==4.0.5",
+        "Flask-Migrate==4.0.5",
         "flask-restx==1.3.0",
-        "flask-sqlalchemy==3.1.1",
-        "flask-wtf==1.2.1",
-        "wtforms-alchemy==0.18.0"
+        "Flask-SQLAlchemy==3.1.1",
+        "Flask-WTF==1.2.1",
+        "WTForms-Alchemy==0.18.0",
         # Add other dependencies here
     ],
     extras_require={  # Optional        

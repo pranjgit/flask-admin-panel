@@ -119,9 +119,7 @@ class AuthTokenMiddleware:
     def exclude(cls, paths):
         def decorator(func):
             @wraps(func)
-            def wrapper(*args, **kwargs):
-                print(paths)
-                print(request.path)
+            def wrapper(*args, **kwargs):                
                 if request.path in paths:
                     return func(*args, **kwargs)
                 return cls.middleware_method() or func(*args, **kwargs)
