@@ -1,7 +1,5 @@
-LICENSE
 MANIFEST.in
 README.md
-pyproject.toml
 setup.py
 src/flask_admin_panel/__init__.py
 src/flask_admin_panel/constant_config.py

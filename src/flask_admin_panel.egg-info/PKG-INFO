@@ -1,87 +1,61 @@
 Metadata-Version: 2.1
 Name: flask-admin-panel
 Version: 0.0.2
-Summary: A simple Admin panle for Flask based applications
+Summary: Simple Admin Panel for Flask
 Home-page: https://github.com/pranjgit/flask-admin-panel
 Author: Pranjal Gharat
-Author-email: Pranjal Gharat <pranjgit@gmail.com>
-Maintainer-email: Pranjal Gharat <pranjgit@gmail.com>
-License: Copyright (c) 2024 The Python Packaging Authority
+Author-email: pranjgit@gmail.com
+License: UNKNOWN
+Description: # Flask-Admin-Panel
+        A [Flask][] extension that enables Admin Panel for Registed Flask-SQLAlchemy Models.
         
-        Permission is hereby granted, free of charge, to any person obtaining a copy
-        of this software and associated documentation files (the "Software"), to deal
-        in the Software without restriction, including without limitation the rights
-        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        copies of the Software, and to permit persons to whom the Software is
-        furnished to do so, subject to the following conditions:
+        [Flask]: https://flask.palletsprojects.com
         
-        The above copyright notice and this permission notice shall be included in all
-        copies or substantial portions of the Software.
+        ## Example
         
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-        SOFTWARE.
-Project-URL: Homepage, https://github.com/pranjgit/flask-admin-panel
-Project-URL: Bug Reports, https://github.com/pranjgit/flask-admin-panel/issues
-Project-URL: Funding, https://donate.pypi.org
-Project-URL: Source, https://github.com/pranjgit/flask-admin-panel
+        Setting up the Flask-Admin-Panel is simple:
+        
+        ```python
+        from flask import Flask
+        from flask_sqlalchemy import SQLAlchemy
+        from flask_admin_panel import FlaskAdminPanel
+        
+        app = Flask(__name__)
+        app.config["SECRET_KEY"] = "<replace with a secret key>"
+        app.config["APP_ADMIN_USER"] = "<replace with a your user name default is admin>"
+        app.config["APP_ADMIN_PASSWORD"] = "provide a strong password"
+        app.config["SQLALCHEMY_DATABASE_URI"] = "provide a sql alchemy database uri"
+        
+        db = SQLAlchemy(app)
+        
+        adminpanel = FlaskAdminPanel(app,db)
+        ```
+        
+        Registring the models to Flask-Admin-Panel :
+        ```python
+        
+        #Create any model
+        class User(db.Model):
+            id = db.Column(db.Integer, primary_key=True)
+            username = db.Column(db.String(80), unique=True, nullable=False)
+            email = db.Column(db.String(120), unique=True, nullable=False)
+        
+            def __repr__(self):
+                return '<User %r>' % self.username
+        
+        # Provide unique name to model and SQLAlchemy.Model class
+        adminpanel.serv_admin_panel.register_model_for_admin_panel("User",User) 
+        ```
 Keywords: flask,flask-admin,admin-panel,flask-admin-panel,setuptools,development
+Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Topic :: Software Development :: Build Tools
 Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
 Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
 Requires-Python: >=3.8, <4
 Description-Content-Type: text/markdown
 Provides-Extra: test
-Provides-Extra: dev
-License-File: LICENSE
-
-# Flask-Admin-Panel
-A [Flask][] extension that enables Admin Panel for Registed Flask-SQLAlchemy Models.
-
-[Flask]: https://flask.palletsprojects.com
-
-## Example
-
-Setting up the Flask-Admin-Panel is simple:
-
-```python
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_admin_panel import FlaskAdminPanel
-
-app = Flask(__name__)
-app.config["SECRET_KEY"] = "<replace with a secret key>"
-app.config["APP_ADMIN_USER"] = "<replace with a your user name default is admin>"
-app.config["APP_ADMIN_PASSWORD"] = "provide a strong password"
-app.config["SQLALCHEMY_DATABASE_URI"] = "provide a sql alchemy database uri"
-
-db = SQLAlchemy(app)
-
-adminpanel = FlaskAdminPanel(app,db)
-```
-
-Registring the models to Flask-Admin-Panel :
-```python
-
-#Create any model
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-
-    def __repr__(self):
-        return '<User %r>' % self.username
-
-# Provide unique name to model and SQLAlchemy.Model class
-adminpanel.serv_admin_panel.register_model_for_admin_panel("User",User) 
-```

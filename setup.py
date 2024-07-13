@@ -58,7 +58,7 @@ setup(
         "flask>=3.0.0",
         "flask-injector==0.15.0",
         "flask-jwt-extended==4.6.0",
-        "flask-marshmallow==1.2.1",
+        "flask-marshmallow==1.2.0",
         "flask-migrate==4.0.7",
         "flask-restx==1.3.0",
         "flask-sqlalchemy==3.1.1",
