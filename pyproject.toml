@@ -16,7 +16,7 @@ build-backend = "setuptools.build_meta"  # If not defined, then legacy behavior 
 
 [project]
 name = "flask-admin-panel"
-version = "0.0.8"
+version = "0.1.0"
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
@@ -116,7 +116,6 @@ dependencies = [
     "Flask-SQLAlchemy>=3.1.1",
     "Flask-WTF>=1.2.1",
     "WTForms-Alchemy>=0.18.0",
-    "WTForms-Components>=0.10.5"
 ],
 
 # List additional groups of dependencies here (e.g. development
