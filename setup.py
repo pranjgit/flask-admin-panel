@@ -7,7 +7,7 @@ here = pathlib.Path(__file__).parent.resolve()
 
 setup(
     name='flask_admin_panel',
-    version = "0.0.6",
+    version = "0.0.7",
     url="https://github.com/pranjgit/flask-admin-panel",  # Optional
     
     # Classifiers help users find your project by categorizing it.
@@ -64,6 +64,9 @@ setup(
         "Flask-SQLAlchemy>=3.1.1",
         "Flask-WTF>=1.2.1",
         "WTForms-Alchemy>=0.18.0"
+    ],
+    dependency_links=[
+        'https://pypi.org/simple/WTForms-Alchemy/'
     ],
     extras_require={  # Optional        
         "test": ["coverage","pytest","pytest-cov"],
