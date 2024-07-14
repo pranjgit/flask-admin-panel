@@ -7,7 +7,7 @@ here = pathlib.Path(__file__).parent.resolve()
 
 setup(
     name='flask_admin_panel',
-    version = "0.0.7",
+    version = "0.0.8",
     url="https://github.com/pranjgit/flask-admin-panel",  # Optional
     
     # Classifiers help users find your project by categorizing it.
